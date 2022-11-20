@@ -1,7 +1,6 @@
 module Main (main) where
 
 import System.IO
-import System.Time
 
 type Row = [Int]
 type Matrix = [Row] 
