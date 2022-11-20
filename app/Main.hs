@@ -29,6 +29,7 @@ getDetSingleElement m i = (m !! 0 !! i) * (-1)^i * singleDet
 
 det :: Matrix -> Int
 det matrix
+  | not $ checkIsSquare matrix = error "A matriz não é quadrada"
   | lenM == 2 = det2X
   | otherwise = sum $ fmap (\x -> getDetSingleElement matrix x) indexElements
   where
