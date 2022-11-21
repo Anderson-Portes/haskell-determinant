@@ -18,14 +18,14 @@ generateMatriz :: Int -> Matrix
 generateMatriz size = [[(size*k)+r | r <- [1..size]] | k <- [0..size-1]]
 
 removeRowAndCol :: Matrix -> Int -> Int -> Matrix
-removeRowAndCol m row col = [[m !! k !! r | r <- [0..lenM], r /= row] | k <- [0..lenM], k /= col]
+removeRowAndCol m row col = [[m !!r !! k | r <- [0..lenM], r /= row] | k <- [0..lenM], k /= col]
   where
     lenM = (length m) - 1
     
 getDetSingleElement :: Matrix -> Int -> Int
 getDetSingleElement m i = (m !! 0 !! i) * (-1)^i * singleDet
   where
-    singleDet = det $ removeRowAndCol m i 0
+    singleDet = det $ removeRowAndCol m 0 i
 
 det :: Matrix -> Int
 det matrix
