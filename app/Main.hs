@@ -1,6 +1,7 @@
 module Main (main) where
 
 import System.IO
+import Data.Time
 
 type Row = [Int]
 type Matrix = [Row] 
@@ -44,6 +45,9 @@ showM (x:xs) = show x ++ "\n" ++ showM xs
 main :: IO ()
 main = do
   sizeM <- prompt "Digite o tamanho da matriz: "
+  initialTime <- getCurrentTime
   let matrix = generateMatriz (read sizeM :: Int)
   putStrLn $ showM matrix
   putStrLn $ "Determinante: " ++ (show.det) matrix
+  finalTime <- getCurrentTime
+  putStrLn $ "Tempo de execução: " ++ show (diffUTCTime finalTime initialTime)
