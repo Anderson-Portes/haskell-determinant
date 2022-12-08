@@ -50,4 +50,5 @@ main = do
   putStrLn $ showM matrix
   putStrLn $ "Determinante: " ++ (show.det) matrix
   finalTime <- getCurrentTime
-  putStrLn $ "Tempo de execução: " ++ show (diffUTCTime finalTime initialTime)
+  -- The time will be given in milliseconds but the string will be in seconds
+  putStrLn $ "Tempo de execução: " ++ show (diffUTCTime finalTime initialTime * 1000)
