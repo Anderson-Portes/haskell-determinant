@@ -4,7 +4,7 @@ import System.IO
 import Data.Time
 
 type Row = [Int]
-type Matrix = [Row] 
+type Matrix = [Row]
 
 prompt :: String -> IO String
 prompt str = do
@@ -48,7 +48,8 @@ main = do
   initialTime <- getCurrentTime
   let matrix = generateMatriz (read sizeM :: Int)
   putStrLn $ showM matrix
-  putStrLn $ "Determinante: " ++ (show.det) matrix
+  let detM = det matrix
+  putStrLn $ "Determinante: " ++ show detM
   finalTime <- getCurrentTime
   -- The time will be given in milliseconds but the string will be in seconds
   putStrLn $ "Tempo de execução: " ++ show (diffUTCTime finalTime initialTime * 1000)
